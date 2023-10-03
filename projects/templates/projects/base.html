@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title> <!-- Блок для заголовка страницы -->
+    <!-- Подключаем статические файлы CSS и JS из папки projects/static/projects -->
+    {% load static %} <!-- Добавляем тег для загрузки статических файлов -->
+    <link rel="stylesheet" href="{% static 'projects/style.css' %}">
+    <script src="{% static 'projects/script.js' %}"></script>
+</head>
+<body>
+<nav> <!-- Навигационная панель -->
+    <ul> <!-- Список ссылок на разные страницы -->
+        <li><a href="{% url 'index' %}">Главная</a></li> <!-- Ссылка на главную страницу со списком проектов -->
+        <li><a href="{% url 'create' %}">Создать проект</a></li> <!-- Ссылка на страницу для создания нового проекта -->
+    </ul>
+</nav>
+<div id="content"> <!-- Блок для содержимого страницы -->
+    {% block content %}{% endblock %} <!-- Блок, который будет переопределяться в дочерних шаблонах -->
+</div>
+<footer> <!-- Подвал страницы -->
+    <p>© 2023 Реестр проектов студентов</p> <!-- Копирайт -->
+</footer>
+</body>
+</html>
